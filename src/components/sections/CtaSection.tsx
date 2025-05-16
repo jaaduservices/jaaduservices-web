@@ -14,7 +14,7 @@ const CtaSection = () => {
                     </div>
                     <div className="md:w-1/3 flex justify-center md:justify-end">
                         <Link to="/contact">
-                            <Button variant="primary" size="large" className="bg-white text-secondary hover:bg-gray-100">
+                            <Button variant="primary" size="large" className="bg-black text-white hover:bg-gray-100">
                                 Contact Us Today
                             </Button>
                         </Link>

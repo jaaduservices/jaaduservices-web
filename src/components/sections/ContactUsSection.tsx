@@ -104,7 +104,7 @@ const ContactUsSection: React.FC = () => {
                             <div className="flex flex-col sm:flex-row gap-5">
                                 <div className="sm:w-1/3">
                                     {/* Basic select, can be replaced with a custom dropdown */}
-                                    <select name="countryCode" value={formData.countryCode} onChange={handleInputChange} className="w-full p-4 border border-gray-300 rounded-md focus:ring-primary focus:border-primary text-base bg-white">
+                                    <select name="countryCode" value={formData.countryCode} onChange={handleInputChange} className="w-full p-4 border border-gray-300 rounded-md focus:ring-primary focus:border-primary text-base">
                                         <option value="+91">IN (+91)</option>
                                         <option value="+1">US (+1)</option>
                                         {/* Add more country codes as needed */}
