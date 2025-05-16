@@ -113,6 +113,7 @@ const ContactUsSection: React.FC = () => {
                                 <div className="sm:w-2/3">
                                     <input type="tel" name="mobileNumber" value={formData.mobileNumber} onChange={handleInputChange} placeholder="Mobile Number" className="w-full p-4 border border-gray-300 rounded-md focus:ring-primary focus:border-primary text-base" required />
                                 </div>
+
                             </div>
                             <div>
                                 <textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Your message" rows={5} className="w-full p-4 border border-gray-300 rounded-md focus:ring-primary focus:border-primary text-base" required />
