@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../ui/Card';
+// import Card from '../ui/Card'; // Card is declared but its value is never read.
 
 // Re-using DotPattern from HeroSection or define locally if preferred
 const DotPattern = ({ className }: { className?: string }) => (
