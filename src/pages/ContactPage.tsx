@@ -8,7 +8,6 @@ import EmailContactsSection from '../components/contact/EmailContactsSection';
 import EmpowerBusinessSection from '../components/contact/EmpowerBusinessSection';
 import CareerSection from '../components/contact/CareerSection';
 import LocationSection from '../components/contact/LocationSection';
-import PageSpecificFooterInfo from '../components/contact/PageSpecificFooterInfo';
 
 const ContactPage = () => {
     return (
@@ -19,7 +18,6 @@ const ContactPage = () => {
             <EmpowerBusinessSection />
             <CareerSection />
             <LocationSection />
-            <PageSpecificFooterInfo />
         </Layout>
     );
 };

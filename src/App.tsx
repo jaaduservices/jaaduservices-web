@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import FaqPage from './pages/FaqPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/blog" element={<ComingSoonPage />} />
       </Routes>
     </Router>
   );

@@ -1,21 +1,37 @@
 const EmailContactsSection = () => {
+    const contacts = [
+        {
+            title: "For Billing & Payment",
+            email: "accounting@registerkaro.in",
+            description: null,
+        },
+        {
+            title: "Joel Dsouza",
+            email: "joel@registerkaro.in",
+            description: "Co-founder",
+        },
+        {
+            title: "For Grievance and Complaints",
+            email: "support@registerkaro.in",
+            description: null,
+        },
+    ];
+
     return (
-        <section className="py-12 bg-[#F7F5F2]">
+        <section className="py-12 md:py-16 bg-white">
             <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <h4 className="text-lg font-semibold text-gray-700 mb-1">For Billing & Payment</h4>
-                        <a href="mailto:accounting@registerkaro.in" className="text-blue-600 hover:underline">Email: accounting@registerkaro.in</a>
-                    </div>
-                    <div>
-                        <h4 className="text-lg font-semibold text-gray-700 mb-1">Joel Dsouza</h4>
-                        <p className="text-sm text-gray-500 mb-1">Co-founder</p>
-                        <a href="mailto:joel@registerkaro.in" className="text-blue-600 hover:underline">Email: joel@registerkaro.in</a>
-                    </div>
-                    <div>
-                        <h4 className="text-lg font-semibold text-gray-700 mb-1">For Grievance and Complaints</h4>
-                        <a href="mailto:support@registerkaro.in" className="text-blue-600 hover:underline">Email: support@registerkaro.in</a>
-                    </div>
+                <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+                    {contacts.map((contact, index) => (
+                        <div key={index} className="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <h4 className="text-xl font-semibold text-gray-800 mb-1">{contact.title}</h4>
+                            {contact.description && (
+                                <p className="text-sm text-gray-500 mb-1">{contact.description}</p>
+                            )}
+                            <a href={`mailto:${contact.email}`} className="text-orange-600 hover:text-orange-700 hover:underline font-medium">
+                                Email: {contact.email}
+                            </a>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
