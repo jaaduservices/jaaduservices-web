@@ -41,7 +41,7 @@ const HeroSection = () => {
                         <FaWhatsapp className="absolute text-green-400 text-4xl opacity-70" style={{ bottom: '5%', left: '70%' }} />
                         {/* You might want to use an actual image for the person if the background doesn't cover it */}
                         <img
-                            src="https://registerkaro.in/_next/image?url=%2Fimages%2Fcontact%2Fcustomer-care.webp&w=640&q=75" // Placeholder image of the person
+                            src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1" // Placeholder image of the person
                             alt="Support Agent"
                             className="max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-xl mx-auto"
                         />

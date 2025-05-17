@@ -32,10 +32,12 @@ const startupMenuData = {
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isStartupMenuOpen, setIsStartupMenuOpen] = useState(false);
+    const [isMobileStartupMenuOpen, setIsMobileStartupMenuOpen] = useState(false);
     const startupMenuRef = useRef<HTMLDivElement>(null); // Ref for click outside
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const toggleStartupMenu = () => setIsStartupMenuOpen(!isStartupMenuOpen);
+    const toggleMobileStartupMenu = () => setIsMobileStartupMenuOpen(!isMobileStartupMenuOpen);
 
     // Close startup menu on click outside
     useEffect(() => {
@@ -95,7 +97,7 @@ const Header = () => {
                     <div className="relative group" ref={startupMenuRef}>
                         <button
                             onClick={toggleStartupMenu}
-                            className="bg-transparent text-gray-700 hover:text-primary font-medium flex items-center focus:outline-none border-none"
+                            className="bg-white text-gray-700 hover:text-primary font-medium flex items-center focus:outline-none border-none"
                         >
                             Startup <DropdownIcon isOpen={isStartupMenuOpen} />
                         </button>
@@ -145,12 +147,47 @@ const Header = () => {
             {/* Mobile Menu */}
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-t">
-                    <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                    <div className="container mx-auto px-4 py-3 flex flex-col space-y-1">
                         <Link to="/" className="text-gray-700 hover:text-primary font-medium py-2" onClick={toggleMenu}>Home</Link>
-                        {/* Consider a simplified dropdown or accordion for mobile startup menu */}
-                        <Link to="/startup" className="text-gray-700 hover:text-primary font-medium flex items-center py-2" onClick={toggleMenu}>
-                            Startup <DropdownIcon />
-                        </Link>
+
+                        {/* Mobile Startup Menu Button */}
+                        <button
+                            onClick={toggleMobileStartupMenu}
+                            className="bg-white border border-transparent text-gray-700 hover:text-primary font-medium flex items-center justify-between py-2 w-full text-left"
+                        >
+                            Startup <DropdownIcon isOpen={isMobileStartupMenuOpen} />
+                        </button>
+
+                        {/* Mobile Startup Menu Items */}
+                        {isMobileStartupMenuOpen && (
+                            <div className="pl-4 border-l border-gray-200 pb-2">
+                                {Object.entries(startupMenuData).map(([category, services]) => (
+                                    <div key={category} className="py-2">
+                                        <h3 className="text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wider flex items-center">
+                                            {/* Optional: Icon can be added here if desired */}
+                                            {category}
+                                        </h3>
+                                        <ul className="space-y-1">
+                                            {services.map(service => (
+                                                <li key={service}>
+                                                    <Link
+                                                        to={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                                                        className="block text-sm text-gray-600 hover:text-primary transition-colors duration-150 py-0.5"
+                                                        onClick={() => {
+                                                            setIsMobileStartupMenuOpen(false);
+                                                            toggleMenu();
+                                                        }}
+                                                    >
+                                                        {service}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
                         <Link to="/blog" className="text-gray-700 hover:text-primary font-medium py-2" onClick={toggleMenu}>Blog</Link>
                         <Link to="/contact" className="text-gray-700 hover:text-primary font-medium py-2" onClick={toggleMenu}>Contact Us</Link>
                         <Link to="/about" className="text-gray-700 hover:text-primary font-medium py-2" onClick={toggleMenu}>About Us</Link>
